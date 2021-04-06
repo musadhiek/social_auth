@@ -1,0 +1,30 @@
+{% extends "login_link.html" %}
+{% block content %}
+<body>
+    <div id="logreg-forms">
+        <form method="POST">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign Up</h1>
+        <form method="POST" id="sign_up">
+                {% csrf_token %}
+
+            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Username" required="" autofocus="">
+            <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Mobile no" required="" autofocus="">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus="">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required autofocus="">
+            <input type="password" id="paswword2" name="password2" class="form-control" placeholder="Repeat Password" required autofocus="">
+
+            <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+            <a href="{% url 'login' %}" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+            </form>    
+            </form>
+
+        </form>   
+            
+    </div>
+    
+    </p>
+    
+   
+
+</body>
+{% endblock %}

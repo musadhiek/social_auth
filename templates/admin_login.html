@@ -1,0 +1,25 @@
+{% extends "login_link.html" %}
+{% block content %}
+<body>
+    <div id="logreg-forms">
+        <form  method="POST">
+            {% csrf_token %}
+            <p style="text-align:center"> Admin </p>
+            <input type="text" id="unsername" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            {% for message in messages %}
+		        <h5 style="color: red;">{{message}}</h5>
+		    {% endfor %}
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+            
+            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+        </form>
+            
+    </div>
+    
+    </p>
+   
+
+</body>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "login_link.html" %}
+{% block content %}
+<body>
+    <div id="logreg-forms">
+        <form  method="POST">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <input type="text" id="inputEmail" name="otp" class="form-control" placeholder="Enter Otp" required="" autofocus="">
+            
+            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Veryfy OTP</button>
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+        </form>
+            <a href="{% url 'sign_up' %}">
+              <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+            </a>    
+    
+            <br>
+            
+    </div>
+    
+    </p>
+   
+
+</body>
+{% endblock %}

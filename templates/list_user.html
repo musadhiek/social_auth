@@ -1,0 +1,68 @@
+{% extends "dashboard.html" %}
+{% block content %}    
+<div class="col-lg-9 col-xs-12 col-sm-9 " style="width: 100%;font-size: 20px;margin-left: 2rem;">
+      <br>
+      <div class="jumbotron" >
+            <h2 style="text-align: center;">USERS</h2>
+            <div class="card mb-4" style="max-width: width auto;">
+                  <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>
+                  <h3 style="margin-left: 10rem;"> </h3>
+                  </div>
+                  <div class="card-body" style="margin-left: 10rem;width:85%;"%>
+                        <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable"  cellspacing="0">
+                                    <thead>
+                                          <tr>
+                                          <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Delete</th>
+                                                <th scope="col">Block</th>
+                                          </tr>
+                                          </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                    </tfoot>
+                                    <tbody>
+                                          {% for user in users %}
+                                          <tr>
+                                                <!-- <th scope="row"></th> -->
+                                                <td>{{user.username}}</td>
+                                                <td>{{user.email}}</td>
+                                    
+                                                <td><a href="/delete_user/{{user.id}}"><button
+                                                                  onclick="return confirm(' Are you sure to delete' ) "
+                                                                  class="btn btn-danger btn-sm btn-block"
+                                                                  style="width: auto;">Delete</button></a>
+                                                {% if user.is_active %}                  
+                                                <td><a href="/block_user/{{user.id}}"><button
+                                                      onclick="return confirm(' Are you sure to block the user' ) "
+                                                      class="btn btn-warning btn-sm btn-block"
+                                                      style="width: auto;">Block</button></a>
+                                                </td>
+                                                {% else %}
+                                                <td><a href="/unblock_user/{{user.id}}"><button
+                                                      onclick="return confirm(' Are you sure to unblock the user' ) "
+                                                      class="btn btn-info btn-sm btn-block"
+                                                      style="width: auto;">UnBlock</button></a>
+                                                </td>
+                                                {% endif %}
+                                          </tr>
+
+                                          {% endfor %}
+                                    </tbody>
+                              </table>
+                        </div>
+                  </div>
+            </div>
+      </div>
+<section>
+      
+</div>
+
+</section>
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+crossorigin="anonymous">
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "login_link.html" %}
+{% block content %}
+<body>
+    <div id="logreg-forms">
+        <form  method="POST">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <div class="social-login" style="margin-left: 6rem;">
+            <a href="{% url 'social:begin' 'facebook' %}">
+                <button class="btn facebook-btn social-btn" type="button" ><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+            </a>
+                <!-- <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button> -->
+            </div>
+            <p style="text-align:center"> OR </p>
+            <input type="text" id="unsername" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            {% for message in messages %}
+		        <h5 style="color: red;">{{message}}</h5>
+		    {% endfor %}
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+            
+            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+        </form>
+        <form method="POST" action="{% url 'send_otp' %}">
+            
+            {% csrf_token %}
+            {% for message in messages %}
+		        <h5 style="color: red;">{{message}}</h5>
+		    {% endfor %}
+            <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Mobile" required="">
+        
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i>Login with Otp</button>
+        </form>
+            <a href="{% url 'sign_up' %}">
+              <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+            </a>    
+    
+            <br>
+            
+    </div>
+    
+    </p>
+   
+
+</body>
+{% endblock %}
